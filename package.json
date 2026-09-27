@@ -1,0 +1,32 @@
+{
+  "name": "pcoff",
+  "version": "0.0.1",
+  "description": "Timed shutdown command tool",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "pcoff": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "shutdown",
+    "poweroff",
+    "timed shutdown",
+    "windows",
+    "pcoff"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node test/smoke.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
