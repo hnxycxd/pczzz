@@ -22,9 +22,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
+
+      - name: Update npm CLI
+        run: npm install --global npm@^11.5.1
 
       - name: Install dependencies
         run: npm install
@@ -33,7 +36,7 @@ jobs:
         run: npm run build
 
       - name: Publish to npm
-        run: npm publish --provenance --access public --no-git-checks
+        run: npm publish --access public --no-git-checks
         # 信任发布会自动使用 OIDC 进行认证，因此无需配置 NODE_AUTH_TOKEN 环境变量
         # 如果仍使用传统的 NPM_TOKEN 方式，则需取消下面一行的注释
         # env:

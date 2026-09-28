@@ -4,6 +4,10 @@
   "description": "Timed shutdown command tool",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hnxycxd/pczzz.git"
+  },
   "bin": {
     "pczzz": "dist/cli.js"
   },
