@@ -1,25 +1,25 @@
-# pcoff
+# pczzz
 
-Timed shutdown command tool
+定时关机命令行工具
 
-## Global installation
-
-```bash
-npm install -g pcoff
-```
-
-## Usage
+## 安装
 
 ```bash
-pcoff 1s      # 1 秒后关机
-pcoff 20m     # 20 分钟后关机
-pcoff 1h      # 1 小时后关机
-pcoff 1h30m   # 组合单位：1 小时 30 分钟后
-pcoff 90      # 纯数字按秒计
-pcoff 30秒    # 中文单位也可以
+npm install -g pczzz
 ```
 
-or `pcoff`
+## 用法
+
+```bash
+pczzz 1s      # 1 秒后关机
+pczzz 20m     # 20 分钟后关机
+pczzz 1h      # 1 小时后关机
+pczzz 1h30m   # 组合单位：1 小时 30 分钟后
+pczzz 90      # 纯数字按秒计
+pczzz 30秒    # 中文单位也可以
+```
+
+或者不带参数执行 `pczzz`
 
 ```bash
 你想多久关机？
@@ -38,7 +38,7 @@ or `pcoff`
 ### 取消关机
 
 ```bash
-pcoff cancel
+pczzz cancel
 ```
 
 或在菜单中选择「取消当前关机」。
@@ -47,9 +47,9 @@ pcoff cancel
 
 ## 重复安排检测
 
-安排新的关机前，pcoff 会检查是否已存在定时关机任务：
+安排新的关机前，pczzz 会检查是否已存在定时关机任务：
 
-1. **自己的记录**（`~/.pcoff/task.json`）：能显示确切的剩余时间，例如
+1. **自己的记录**（`~/.pczzz/task.json`）：能显示确切的剩余时间，例如
    「当前已安排 1 小时 29 分钟 后关机（本工具于 23:01:35 设置）。要重新安排吗？(Y/N)」
 2. **系统级检测（仅 Windows）**：即使任务不是本工具设置的（比如手动执行过 `shutdown -s -t 3600`），也能检测到。Windows 在已有计划关机时再次执行 `shutdown` 会返回错误码 1190，据此弹出「要取消旧任务并重新安排吗？」的询问。外来任务拿不到剩余时间，只能提示存在。
 
@@ -60,18 +60,18 @@ pcoff cancel
 | 平台          | 精度   | 权限                          | 说明                                                  |
 | ------------- | ------ | ----------------------------- | ----------------------------------------------------- |
 | Windows       | 秒级   | 无需管理员                    | 完整支持，含系统级检测                                |
-| macOS / Linux | 分钟级 | 需要 root（`sudo pcoff ...`） | `shutdown` 命令仅支持分钟；无系统级检测，依赖记录文件 |
+| macOS / Linux | 分钟级 | 需要 root（`sudo pczzz ...`） | `shutdown` 命令仅支持分钟；无系统级检测，依赖记录文件 |
 
 ## 开发
 
 ```bash
 npm install
 npm run build   # tsc 编译到 dist/
-npm test        # 冒烟测试（PCOFF_DRY_RUN=1，不会真的关机）
-npm link        # 本地全局试用 pcoff 命令
+npm test        # 冒烟测试（PCZZZ_DRY_RUN=1，不会真的关机）
+npm link        # 本地全局试用 pczzz 命令
 ```
 
-测试钩子：`PCOFF_DRY_RUN=1` 跳过真实的 shutdown 调用；`PCOFF_HOME` 指定记录文件目录（默认 `~/.pcoff`）。
+测试钩子：`PCZZZ_DRY_RUN=1` 跳过真实的 shutdown 调用；`PCZZZ_HOME` 指定记录文件目录（默认 `~/.pczzz`）。
 
 ## 发布
 
