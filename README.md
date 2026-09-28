@@ -1,16 +1,14 @@
 # pcoff
 
-定时关机命令行工具
+Timed shutdown command tool
 
-## 安装
+## Global installation
 
 ```bash
 npm install -g pcoff
 ```
 
-## 使用
-
-### 命令行直接指定时间
+## Usage
 
 ```bash
 pcoff 1s      # 1 秒后关机
@@ -21,13 +19,9 @@ pcoff 90      # 纯数字按秒计
 pcoff 30秒    # 中文单位也可以
 ```
 
-支持的单位：`s` 秒 / `m` 分钟 / `h` 小时 / `d` 天（以及 sec、min、hour、秒、分钟、小时等写法），可以自由组合（如 `1h30m`）。
+or `pcoff`
 
-### 交互式菜单
-
-直接运行 `pcoff`（不带参数）：
-
-```
+```bash
 你想多久关机？
   1. 30 秒
   2. 20 分钟
