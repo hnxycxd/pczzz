@@ -1,6 +1,6 @@
 {
   "name": "pczzz",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Timed shutdown command tool",
   "type": "module",
   "license": "MIT",
